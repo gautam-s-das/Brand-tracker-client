@@ -3,9 +3,6 @@ Brand Reputation & Mention Tracker
 A full-stack web application that tracks brand mentions across Twitter (X), Reddit, and Google News in real time.
 The system performs sentiment analysis, stores data in MongoDB Atlas, and displays insights in an interactive React dashboard with charts, tables, and live updates through Socket.io.
 
-🔗 GitHub Repository:
-https://github.com/gautam-s-das/Brand-reputation-tracker
-
 Table of Contents
 
 Overview

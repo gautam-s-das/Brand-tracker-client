@@ -1,70 +1,181 @@
-# Getting Started with Create React App
+Brand Reputation & Mention Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application that tracks brand mentions across Twitter (X), Reddit, and Google News in real time.
+The system performs sentiment analysis, stores data in MongoDB Atlas, and displays insights in an interactive React dashboard with charts, tables, and live updates through Socket.io.
 
-## Available Scripts
+🔗 GitHub Repository:
+https://github.com/gautam-s-das/Brand-reputation-tracker
 
-In the project directory, you can run:
+Table of Contents
 
-### `npm start`
+Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tech Stack
 
-### `npm test`
+Architecture
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Folder Structure
 
-### `npm run build`
+Environment Variables
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+API Endpoints
 
-### `npm run eject`
+Approach & Key Decisions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Future Enhancements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🚀 Overview
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The Brand Reputation Tracker enables marketing teams, analysts, or brand managers to monitor how people talk about their brand online.
+It fetches mentions from:
 
-## Learn More
+Twitter (X)
+Reddit
+Google News
+Each mention is analyzed for sentiment, saved to MongoDB, and streamed to a dashboard in real time using Socket.io.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The system performs:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sentiment Analysis (positive / negative / neutral)
 
-### Code Splitting
+Trend Visualization (Recharts)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Scheduled Fetching (Cron jobs)
 
-### Analyzing the Bundle Size
+Real-time Streaming of New Mentions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Persistent Storage in MongoDB Atlas
+Features
+🔍 Multi-Platform Mention Fetching
 
-### Making a Progressive Web App
+Fetches mentions from:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Twitter (X)
 
-### Advanced Configuration
+Reddit
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Google News
 
-### Deployment
+🤖 Sentiment Analysis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Each mention includes:
 
-### `npm run build` fails to minify
+Sentiment label
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sentiment score
+
+📊 Dashboard Visualizations
+
+The frontend dashboard includes:
+
+Pie Charts
+
+Bar Charts
+
+Table Views
+
+Real-time updates via WebSocket
+
+⚡ Real-Time Streaming
+
+Newly fetched mentions appear immediately using Socket.io.
+
+🕒 Automatic Background Jobs
+
+A Cron job runs every 5 minutes, fetching new mentions automatically.
+
+💾 Persistent Storage
+
+All mentions (with timestamps) are stored in MongoDB Atlas.
+
+🧰 Tech Stack
+Frontend
+
+React.js
+
+Tailwind CSS
+
+Recharts
+
+Axios
+
+Socket.io Client
+
+Backend
+
+Node.js
+
+Express.js
+
+Mongoose
+
+Sentiment (NLP)
+
+Axios
+
+Socket.io
+
+node-cron
+
+brand-reputation-tracker/
+│
+├── backend/
+│   ├── model/
+│   ├── Services/
+│   ├── server.js
+│   ├── db.js
+│   ├── package.json
+│   ├── .env.example
+│   └── .gitignore
+│
+└── brand-tracker-client/
+    ├── src/
+    ├── public/
+    ├── build/
+    ├── package.json
+    ├── .env.example
+    └── .gitignore
+🔐 Environment Variables
+Backend → backend/.env
+makefile
+Copy code
+PORT=5000
+MONGO_URI=
+TWITTER_BEARER=
+NEWS_API_KEY=
+Frontend → brand-tracker-client/.env
+bash
+Copy code
+REACT_APP_API_URL=http://localhost:5000/api
+🛠️ Backend Setup
+bash
+Copy code
+cd backend
+npm install
+npm start
+🖥️ Frontend Setup
+bash
+Copy code
+cd brand-tracker-client
+npm install
+npm start
+
+Approach & Key Decisions
+
+Chose MongoDB Atlas for scalability and flexible document structure.
+
+Used Socket.io to push new mentions instantly without page refresh.
+
+Separated services for Twitter, Reddit, and News to keep the code modular.
+
+Cron jobs ensure scheduled automated collection.
+
+Recharts chosen for accessible, customizable visual graphics.
